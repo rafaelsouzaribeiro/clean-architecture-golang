@@ -2,7 +2,7 @@ package configs
 
 import "github.com/spf13/viper"
 
-type conf struct {
+type Conf struct {
 	DBDriver          string `mapstructure:"DB_DRIVER"`
 	DBHost            string `mapstructure:"DB_HOST"`
 	DBPort            string `mapstructure:"DB_PORT"`
@@ -18,8 +18,8 @@ type conf struct {
 	RabbitMqPort      string `mapstructure:"RABBIT_MQ_PORT"`
 }
 
-func LoadConfig(path string) (*conf, error) {
-	var conf *conf
+func LoadConfig(path string) (*Conf, error) {
+	var conf *Conf
 	viper.SetConfigName("app_config")
 	viper.SetConfigType("env")
 	viper.AddConfigPath(path)
